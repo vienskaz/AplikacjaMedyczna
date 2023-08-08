@@ -42,6 +42,11 @@ public class Patient
         this.weight=weight;
     }
 
+      public void setSex(double sex)
+    {
+        this.sex=sex;
+    }
+
     public void setHeight(double height)
     {
         this.height=height;
@@ -73,6 +78,10 @@ public class Patient
         return surname;
     }
 
+      public String getSex()
+    {
+        return sex;
+    }
 
     public double getWeight(double weight)
     {

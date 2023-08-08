@@ -3,6 +3,7 @@ public class Patient
 {
     String name;
     String surname;
+    String sex;
     int age;
     double weight;
     double height;
@@ -11,11 +12,13 @@ public class Patient
     int systolicPressure;
     
     
-    Patient(String name,String surname,int age,double weight,double height,double temperature,int pulse,
+    Patient(String name,String surname,String sex,int age,double weight,double height,double temperature,int pulse,
     int systolicPressure)
     {
         this.name=name;
         this.surname=surname;
+        this.sex=sex;
+        this.age=age;
         this.weight=weight;
         this.height=height;
         this.temperature=temperature;

@@ -20,9 +20,12 @@ public class APLIKACJAMEDYCZNA
     
         System.out.println("Surname: ");
         String surname = scanner.nextLine();
+
+        System.out.println("Sex: ");
+        String sex = scanner.nextLine();
     
         System.out.println("Age: ");
-        int age = scanner.nextInt();
+        int age = Integer.parseInt(scanner.nextLine());
     
         System.out.println("Weight in kg: ");
         double weight = scanner.nextDouble();
@@ -39,7 +42,7 @@ public class APLIKACJAMEDYCZNA
         System.out.println("Systolic Pressure: ");
         int systolicPressure = scanner.nextInt();
     
-        Patient newPatient = new Patient(name, surname, age, weight, height, temperature, pulse, systolicPressure);
+        Patient newPatient = new Patient(name, surname,sex ,age, weight, height, temperature, pulse, systolicPressure);
         patientsList.add(newPatient);
     
         System.out.println("Patient added successfully!\n");
@@ -57,6 +60,7 @@ public class APLIKACJAMEDYCZNA
             System.out.println("To delete patient enter 2");
             System.out.println("To check patient enter 3");
             int select= scanner.nextInt();
+            scanner.nextLine();
         
         switch(select)
         {
@@ -91,6 +95,7 @@ public class APLIKACJAMEDYCZNA
                 }
                 int selectToDelete = scanner.nextInt();
                 patientsList.remove(selectToDelete);
+                System.out.println("Patient added successfully!\n");
             }
             
 

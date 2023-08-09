@@ -11,7 +11,8 @@ public class Patient
     int pulse;
     int systolicPressure;
     
-    
+
+
     Patient(String name,String surname,String sex,int age,double weight,double height,double temperature,int pulse,
     int systolicPressure)
     {
@@ -42,7 +43,11 @@ public class Patient
         this.weight=weight;
     }
 
-      public void setSex(double sex)
+     public void setAge(int age)
+    {
+        this.age=age;
+    }
+      public void setSex(String sex)
     {
         this.sex=sex;
     }

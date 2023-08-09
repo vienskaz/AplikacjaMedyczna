@@ -15,34 +15,50 @@ public class APLIKACJAMEDYCZNA
 
     }
     public static void addPatients(ArrayList<Patient> patientsList, Scanner scanner) {
+        Patient newPatient = new Patient(null, null, null, 0, 0, 0, 0, 0, 0);
+
         System.out.println("Name: ");
         String name = scanner.nextLine();
+        newPatient.setName(name);
     
         System.out.println("Surname: ");
         String surname = scanner.nextLine();
+        newPatient.setSurname(surname);
 
         System.out.println("Sex: ");
         String sex = scanner.nextLine();
+        newPatient.setSex(sex);
     
         System.out.println("Age: ");
         int age = Integer.parseInt(scanner.nextLine());
+        newPatient.setAge(age);
     
         System.out.println("Weight in kg: ");
         double weight = scanner.nextDouble();
+        newPatient.setWeight(weight);
+
     
         System.out.println("Height in cm: ");
         double height = scanner.nextDouble();
+        newPatient.setHeight(height);
+
     
         System.out.println("Temperature in \u00B0C: ");
         double temperature = scanner.nextDouble();
+        newPatient.setTemperature(temperature);
+
     
         System.out.println("Pulse: ");
         int pulse = scanner.nextInt();
+        newPatient.setPulse(pulse);
+
     
         System.out.println("Systolic Pressure: ");
         int systolicPressure = scanner.nextInt();
+        newPatient.setSystolicPressure(systolicPressure);
+
     
-        Patient newPatient = new Patient(name, surname,sex ,age, weight, height, temperature, pulse, systolicPressure);
+        
         patientsList.add(newPatient);
     
         System.out.println("Patient added successfully!\n");
@@ -97,6 +113,26 @@ public class APLIKACJAMEDYCZNA
                 patientsList.remove(selectToDelete);
                 System.out.println("Patient added successfully!\n");
             }
+
+            case 3:
+             System.out.println("Select patient to check from the list");
+                for (int i = 0; i < patientsList.size(); i++) {
+                    Patient patient = patientsList.get(i);
+                    System.out.println(i + ": " + patient.getName() + " " + patient.getSurname());
+                }
+                int selectTocheck=Integer.parseInt(scanner.nextLine());
+                Patient patientTocheck = patientsList.get(selectTocheck);
+                System.out.println(patientTocheck.name);
+                System.out.println(patientTocheck.surname);
+                System.out.println(patientTocheck.sex);
+                System.out.println(patientTocheck.age);
+                System.out.println(patientTocheck.weight);
+                System.out.println(patientTocheck.height);
+                System.out.println(patientTocheck.temperature);
+                System.out.println(patientTocheck.pulse);
+                System.out.println(patientTocheck.systolicPressure);
+                patientTocheck.checkBMI();
+
             
 
 

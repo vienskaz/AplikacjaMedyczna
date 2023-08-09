@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class APLIKACJAMEDYCZNA
 {
@@ -73,6 +76,7 @@ public class APLIKACJAMEDYCZNA
             System.out.println("To add patient enter 1");
             System.out.println("To delete patient enter 2");
             System.out.println("To check patient enter 3");
+            System.out.println("To save all patients into file 4");
             int select= scanner.nextInt();
             scanner.nextLine();
         
@@ -88,7 +92,7 @@ public class APLIKACJAMEDYCZNA
             {
                 System.out.println("You have not patients to delete.");
                 System.out.println("Do you want to add one?");
-                System.out.println("Enter 1 to add, enter 2 to quit");
+                System.out.println("Enter 1 to add, enter 2 to go back to menu");
                 int select_nested= scanner.nextInt();
                 switch(select_nested){
                     case 1:
@@ -130,6 +134,39 @@ public class APLIKACJAMEDYCZNA
                 System.out.println("Pulse: "+patientTocheck.getPulse());
                 System.out.println("Systolic Pressure: "+patientTocheck.getSystolicPressure());
                 patientTocheck.checkBMI();
+
+                case 4:
+                String csvFilePath = "data.csv";
+                try {
+                    FileWriter csvWriter = new FileWriter(csvFilePath);
+                    
+                    // Write CSV header
+                    csvWriter.append("Name,Surname,Sex,Age,Weight,Height,Temperature,Pulse,Systolic Pressure");
+                    csvWriter.append("\n");
+                
+                    // Write patient data
+                    for (Patient patient : patientsList) {
+                        csvWriter.append(patient.getName()).append(",");
+                        csvWriter.append(patient.getSurname()).append(",");
+                        csvWriter.append(patient.getSex()).append(",");
+                        csvWriter.append(String.valueOf(patient.getAge())).append(",");
+                        csvWriter.append(String.valueOf(patient.getWeight())).append(",");
+                        csvWriter.append(String.valueOf(patient.getHeight())).append(",");
+                        csvWriter.append(String.valueOf(patient.getTemperature())).append(",");
+                        csvWriter.append(String.valueOf(patient.getPulse())).append(",");
+                        csvWriter.append(String.valueOf(patient.getSystolicPressure()));
+                        csvWriter.append("\n");
+                    }
+                
+                    csvWriter.flush();
+                    csvWriter.close();
+                
+                    System.out.println("Patient data has been saved to the CSV file.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+
 
             
 

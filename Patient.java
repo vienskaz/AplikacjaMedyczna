@@ -28,6 +28,8 @@ public class Patient
         this.systolicPressure=systolicPressure;
     }
     */
+    Patient(){}
+
     public void setName(String name)
     {
         this.name=name;

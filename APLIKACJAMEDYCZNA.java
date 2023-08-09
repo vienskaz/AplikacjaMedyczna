@@ -15,7 +15,7 @@ public class APLIKACJAMEDYCZNA
 
     }
     public static void addPatients(ArrayList<Patient> patientsList, Scanner scanner) {
-        Patient newPatient = new Patient(null, null, null, 0, 0, 0, 0, 0, 0);
+        Patient newPatient = new Patient();
 
         System.out.println("Name: ");
         String name = scanner.nextLine();
@@ -62,8 +62,6 @@ public class APLIKACJAMEDYCZNA
         patientsList.add(newPatient);
     
         System.out.println("Patient added successfully!\n");
-        System.out.println(newPatient.getName());
-        System.out.println(newPatient.getSurname());
         menu(patientsList, scanner);
     }
     
@@ -122,15 +120,15 @@ public class APLIKACJAMEDYCZNA
                 }
                 int selectTocheck=Integer.parseInt(scanner.nextLine());
                 Patient patientTocheck = patientsList.get(selectTocheck);
-                System.out.println(patientTocheck.name);
-                System.out.println(patientTocheck.surname);
-                System.out.println(patientTocheck.sex);
-                System.out.println(patientTocheck.age);
-                System.out.println(patientTocheck.weight);
-                System.out.println(patientTocheck.height);
-                System.out.println(patientTocheck.temperature);
-                System.out.println(patientTocheck.pulse);
-                System.out.println(patientTocheck.systolicPressure);
+                System.out.println("Name:" +patientTocheck.getName());
+                System.out.println("Surname: "+patientTocheck.getSurname());
+                System.out.println("Sex: "+patientTocheck.getSex());
+                System.out.println("Age: "+patientTocheck.getAge());
+                System.out.println("Weight: "+patientTocheck.getWeight());
+                System.out.println("Height: "+patientTocheck.getHeight());
+                System.out.println("Temperature: "+patientTocheck.getTemperature());
+                System.out.println("Pulse: "+patientTocheck.getPulse());
+                System.out.println("Systolic Pressure: "+patientTocheck.getSystolicPressure());
                 patientTocheck.checkBMI();
 
             

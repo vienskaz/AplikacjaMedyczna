@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Patient
 {
@@ -12,8 +13,8 @@ public class Patient
     int systolicPressure;
     
 
-
-    Patient(String name,String surname,String sex,int age,double weight,double height,double temperature,int pulse,
+/* 
+     Patient(String name,String surname,String sex,int age,double weight,double height,double temperature,int pulse,
     int systolicPressure)
     {
         this.name=name;
@@ -26,7 +27,7 @@ public class Patient
         this.pulse=pulse;
         this.systolicPressure=systolicPressure;
     }
-
+    */
     public void setName(String name)
     {
         this.name=name;
@@ -88,7 +89,7 @@ public class Patient
         return sex;
     }
 
-    public double getWeight(double weight)
+    public double getWeight()
     {
         return weight;
     }
@@ -96,6 +97,11 @@ public class Patient
     public double getHeight()
     {
         return height;
+    }
+
+    public int getAge()
+    {
+        return age;
     }
 
     public double getTemperature()
@@ -114,30 +120,23 @@ public class Patient
     }
 
 
-    public void checkBMI()
-    {
-        height=height/100;
-        double BMI=weight/(height*height);
+    public void checkBMI() {
+        height = height / 100;
+        double BMI = weight / (height * height);
 
-      
-            if(BMI<18.5)
-            {
-                System.out.println("This patient's BMI is "+BMI+" which stands for underweight");
-            }
-            else if(BMI>=18.5 && BMI<=24.9 )
-            {
-                System.out.println("This patient's BMI is "+BMI+" which stands for healty weight");
-            }
-            else if(BMI>=25 && BMI<=29.9)
-            {
-                System.out.println("This patient's BMI is "+BMI+" which stands for overweight");
-            }
-            else
-            {
-                System.out.println("This patient's BMI is "+BMI+" which stands for obsiety");
-            }
-        
-        
+        DecimalFormat df = new DecimalFormat("#.00");
+    String formattedBMI = df.format(BMI);
+
+        if (BMI < 18.5) {
+            System.out.println("This patient's BMI is " + formattedBMI + " which stands for underweight");
+        } else if (BMI >= 18.5 && BMI <= 24.9) {
+            System.out.println("This patient's BMI is " + formattedBMI + " which stands for healthy weight");
+        } else if (BMI >= 25 && BMI <= 29.9) {
+            System.out.println("This patient's BMI is " + formattedBMI + " which stands for overweight");
+        } else {
+            System.out.println("This patient's BMI is " + formattedBMI + " which stands for obesity");
+        }
+  
     }
 
 
